@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loop Practice - Do While Loop</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 100;
+        }
+
+        table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        text-align: left;
+        font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h2>Welcome Lucky!, you have some queries to review</h2>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Student</th>
+                <th>Query</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="queriesTableBody">
+            <!-- The rows will be inserted here dynamically -->
+        </tbody>
+    </table>
+
+    <script>
+        const queries = [
+            { id: 1, student: "Genesis", query: "Permission to absent from tech class", status: "APPROVED" },
+            { id: 2, student: "Nunya", query: "Permission to Absa Hackathon", status: "APPROVED" },
+            { id: 3, student: "Fleeur", query: "Permission to shoot film", status: "DECLINED" },
+            { id: 4, student: "Delight", query: "Need some delightful time to cool off", status: "DECLINED" },
+            { id: 5, student: "Sila", query: "Permission to participate in Absa Hackathon", status: "PENDING" },
+        ];
+
+        const tableBody = document.getElementById("queriesTableBody");
+        let i = 0;
+        do {
+            const row = document.createElement('tr');
+
+            row.innerHTML = `
+                <td>${queries[i].id}</td>
+                <td>${queries[i].student}</td>
+                <td>${queries[i].query}</td>
+                <td>${queries[i].status}</td>
+                <td>
+                    <a href="#" class="action-link">Approve</a>
+                    <a href="#" class="action-link">Decline</a>
+                </td>
+            `;
+
+            tableBody.appendChild(row);
+            i++;
+        } while (i < queries.length);
+    </script>
+</body>
+</html>
